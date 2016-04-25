@@ -1,6 +1,7 @@
 class CreateServices < ActiveRecord::Migration
   def change
     create_table :services do |t|
+      t.integer :user_id
       t.string :title
       t.string :title_seo
       t.integer :price

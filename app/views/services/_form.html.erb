@@ -1,57 +1,29 @@
-<%= form_for(@service) do |f| %>
-  <% if @service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<%= form_for(@test) do |f| %>
+    <% if @test.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
 
-      <ul>
-      <% @service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @test.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :title_seo %><br>
-    <%= f.text_field :title_seo %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.number_field :due_date %>
-  </div>
-  <div class="field">
-    <%= f.label :youtube_url %><br>
-    <%= f.text_field :youtube_url %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :sub_category %><br>
-    <%= f.text_field :sub_category %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :refund %><br>
-    <%= f.number_field :refund %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.check_box :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :price %><br>
+      <%= f.number_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :desc %><br>
+      <%= f.text_area :desc %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

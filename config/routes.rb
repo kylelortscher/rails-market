@@ -1,13 +1,35 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
-  get 'welcome/index'
 
-  resources :services
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+
+  #RESTFUL ROUTES FOR SERVICE
+  #Show All Services
+  get '/services', to: 'services#index'
+  root 'service#index'
+  #Form For New Service
+  get '/services/new', to: 'services#new'
+  #Create New Service
+  post '/services', to: 'services#create'
+  #Getting Service
+  get '/services/:titleSeo', to: 'services#show'
+  #Getting Edit Service
+  get '/services/:id/edit', to: 'services#edit'
+  #Chaning The Service
+  put 'services/:id', to: 'services#update'
+  #Delete A Service
+  #delete 'services/:id', to: 'services#destroy'
+
+
+
+
+
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
