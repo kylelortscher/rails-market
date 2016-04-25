@@ -41,7 +41,7 @@
         <td><%= test.title %></td>
         <td><%= test.price %></td>
         <td><%= test.desc %></td>
-        <td><%= link_to 'Show', test %></td>
+        <td><a href="/services/<%= test.titleSeo %>">Show Service</a></td>
         <td><%= link_to 'Edit', edit_test_path(test) %></td>
         <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
