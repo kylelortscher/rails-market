@@ -2,6 +2,9 @@
 <html>
 <head>
   <title><%= @title %></title>
+  <!-- Jquery -->
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <!-- Stylesheet Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
   <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap -->
@@ -17,8 +20,20 @@
 </head>
 <body>
 <%= render 'layouts/nav' %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% unless notice.nil? %>
+    <div class="container">
+      <p class="alert alert-info">
+        <%= notice %>
+      </p>
+    </div>
+<% end %>
+<% unless alert.nil? %>
+    <div class="container">
+      <p class="alert alert-danger">
+        <%= alert %>
+      </p>
+    </div>
+<% end %>
 <%= yield %>
 <%= render 'layouts/footer' %>
 </body>
