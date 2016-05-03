@@ -1,29 +1,44 @@
-<%= form_for(@test) do |f| %>
-    <% if @test.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
+<% if @service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this test from being saved:</h2>
 
-          <ul>
-            <% @test.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :price %><br>
-      <%= f.number_field :price %>
-    </div>
-    <div class="field">
-      <%= f.label :desc %><br>
-      <%= f.text_area :desc %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
+      <ul>
+        <% @service.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
 <% end %>
+<div class="container">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="card card-block">
+      <form class="new_service" id="new_service" actions="/services" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-2">
+              <p>Title</p>
+            </div>
+            <div class="col-xs-10">
+              <input class="form-control" id="service_title" placeholder="Serive Title Max 45 Characters..." type="text" name="service[title]">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-2">
+            <p>Price</p>
+          </div>
+          <div class="col-xs-4">
+            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <input type="text" class="form-control" name="service[price]" id="exampleInputAmount" placeholder="Amount">
+              <div class="input-group-addon">.00</div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

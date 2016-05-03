@@ -6,15 +6,18 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @title = params[:titleSeo]
     @service = Service.where(titleSeo: params[:titleSeo])
   end
 
   def new
+    @title = "Sellgrip - New Service"
     @service = Service.new
   end
 
   def edit
     @test = Test.find(params[:id])
+    @title = "Sellgrip Edit Service"
   end
 
   def create

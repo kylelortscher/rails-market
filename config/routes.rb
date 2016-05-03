@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #RESTFUL ROUTES FOR SERVICE
   #Show All Services
   get '/services', to: 'services#index'
-  root 'service#index'
+  root 'services#index'
   #Form For New Service
   get '/services/new', to: 'services#new'
   #Create New Service
