@@ -23,34 +23,13 @@
 <% end %>
 
 
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Tests</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Price</th>
-    <th>Desc</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @services.each do |service| %>
-      <tr>
-        <td><%= service.title %></td>
-        <td><%= service.price %></td>
-        <td><%= service.desc %></td>
-        <td><a href="/services/<%= service.titleSeo %>">Show Service</a></td>
-        <td><%= link_to 'Edit', edit_test_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Test', services_new_path %>
+<% @services.each do |service| %>
+    <tr>
+      <td><%= service.title %></td>
+      <td><%= service.price %></td>
+      <td><%= service.desc %></td>
+      <td><a href="/services/<%= service.titleSeo %>">Show Service</a></td>
+      <td><%= link_to 'Edit', edit_test_path(service) %></td>
+      <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+<% end %>
