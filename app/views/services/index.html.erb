@@ -27,9 +27,8 @@
     <tr>
       <td><%= service.title %></td>
       <td><%= service.price %></td>
-      <td><%= service.desc %></td>
-      <td><a href="/services/<%= service.titleSeo %>">Show Service</a></td>
-      <td><%= link_to 'Edit', edit_test_path(service) %></td>
-      <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><a href="/services/<%= service.title_seo %>">Show Service</a></td>
+      <td><%# link_to 'Edit', edit_test_path(service) %></td>
+      <td><%# link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
 <% end %>

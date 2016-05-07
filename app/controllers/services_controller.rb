@@ -21,7 +21,18 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = Service.new(service_params)
+    @service = Service.new
+    @service.title = params[:title]
+    #Creating A Slug For Service Title
+    @service.title_seo = @service.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    @service.price = params[:price]
+    @service.due_date = params[:date]
+    @service.youtube_url = params[:youtubeUrl]
+    @service.category = params[:category]
+    @service.sub_category = params[:sub_category]
+    @service.description = params[:description]
+    @service.refund = params[:refund]
+    @service.status = true
     @service.user_id = current_user.id
     if @service.save
       flash[:notice] = "Service Successfully Created"

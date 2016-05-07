@@ -1,4 +1,4 @@
-<form class="new_service" id="new_service" actions="/services" accept-charset="UTF-8" method="post">
+<form action="/services" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group">
@@ -7,7 +7,7 @@
         <p>Title</p>
       </div>
       <div class="col-xs-10">
-        <input class="form-control" autocomplete="off" placeholder="Service Title For 45 Characters" type="text" name="service[title]">
+        <input class="form-control" autocomplete="off" placeholder="Service Title For 45 Characters" type="text" name="title">
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
         <div class="input-group">
           <div class="input-group-addon">$</div>
-          <input type="text" autocomplete="off" class="form-control" name="service[price]" id="exampleInputAmount" placeholder="Amount">
+          <input type="text" autocomplete="off" class="form-control" name="price" id="exampleInputAmount" placeholder="Amount">
           <div class="input-group-addon">.00</div>
         </div>
       </div>
@@ -56,7 +56,7 @@
       </div>
       <div class="col-xs-10">
         <fieldset class="form-group">
-          <select class="form-control form-control-lg" name="refund" style="margin-top: 1.2%;">
+          <select class="form-control form-control-lg" name="category" style="margin-top: 1.2%;">
             <option value="30">Ads</option>
             <option value="45">Marketing</option>
             <option value="90">Writing</option>
@@ -74,7 +74,7 @@
       </div>
       <div class="col-xs-10">
         <fieldset class="form-group">
-          <select class="form-control form-control-lg" name="refund" style="margin-top: 1.2%;">
+          <select class="form-control form-control-lg" name="sub_category" style="margin-top: 1.2%;">
             <option value="30">Ads</option>
             <option value="45">Marketing</option>
             <option value="90">Writing</option>
@@ -104,7 +104,7 @@
       </div>
       <div class="col-xs-3">
         <div class="form-group">
-          <select class="form-control form-control-lg" name="dueDate" style="margin-top: 1.2%;" id="exampleSelect1">
+          <select class="form-control form-control-lg" name="due_date" style="margin-top: 1.2%;" id="exampleSelect1">
             <option value="1">1 Day</option>
             <option value="2">2 Days</option>
             <option value="3">3 Days</option>
