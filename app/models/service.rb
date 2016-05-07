@@ -18,7 +18,7 @@ class Service < ActiveRecord::Base
   validates_uniqueness_of :description, :message => "Your description must be unique"
 
   #Length Validation
-  validates_length_of :title, :minimum => 5, :maximum => 45, :message => "Your title must be between 4 and 45 characters"
+  validates_length_of :title, :minimum => 5, :maximum => 65, :message => "Your title must be between 4 and 65 characters"
   validates_length_of :description, :minimum => 25, :maximum => 500, :message => "Your description must be between 25 and 500 characters"
 
   #Validate Numerically
