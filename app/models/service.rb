@@ -1,5 +1,7 @@
 class Service < ActiveRecord::Base
 
+  #TODO MAKE THESE WORK IN JAVASCRIPT
+
   #Presence Validations
   validates_presence_of :title, :message => "Title Can't Be Empty"
   validates_presence_of :price, :message => "Price Can't Be Empty"
@@ -21,6 +23,4 @@ class Service < ActiveRecord::Base
 
   #Validate Numerically
   validates_numericality_of :price, :message => "You must use numbers for your price"
-
-  #Regex Validation
 end

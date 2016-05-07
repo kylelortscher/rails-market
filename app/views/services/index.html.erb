@@ -22,13 +22,22 @@
     </div>
 <% end %>
 
+<div class="row">
+  <div class="col-md-3 col-md-offset-1">
 
-<% @services.each do |service| %>
-    <tr>
-      <td><%= service.title %></td>
-      <td><%= service.price %></td>
-      <td><a href="/services/<%= service.title_seo %>">Show Service</a></td>
-      <td><%# link_to 'Edit', edit_test_path(service) %></td>
-      <td><%# link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-<% end %>
+  </div>
+  <div class="col-md-8">
+    <div class="row">
+      <%# TODO ADD PICTURE FROM S3 AND CORRECT LINKS %>
+      <% @services.each do |service| %>
+          <div class="col-md-3">
+            <div class="service-preview" style="padding: 2%;background: #fff;">
+              <a href="/"><img src="https://images.unsplash.com/photo-1413708617479-50918bc877eb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=21cdd1cc5c52f98dc011ebfb2f7148b2" width="100%"></a>
+              <a href="/"><p style="text-align: center;"><%= service.title %></p></a>
+              <a href="/" class="btn btn-primary">$<%= service.price %></a>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
