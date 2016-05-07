@@ -31,6 +31,7 @@ class ServicesController < ApplicationController
     @service.category = params[:category]
     @service.sub_category = params[:sub_category]
     @service.description = params[:description]
+    @service.due_date = params[:due_date]
     @service.refund = params[:refund]
     @service.status = true
     @service.user_id = current_user.id
