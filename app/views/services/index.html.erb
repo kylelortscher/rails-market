@@ -31,10 +31,14 @@
       <%# TODO ADD PICTURE FROM S3 AND CORRECT LINKS %>
       <% @services.each do |service| %>
           <div class="col-md-3">
-            <div class="service-preview" style="padding: 2%;background: #fff;">
+            <div class="service-preview" style="padding: 4%;background: #fff;">
               <a href="/"><img src="https://images.unsplash.com/photo-1413708617479-50918bc877eb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=21cdd1cc5c52f98dc011ebfb2f7148b2" width="100%"></a>
               <a href="/"><p style="text-align: center;"><%= service.title %></p></a>
-              <a href="/" class="btn btn-primary">$<%= service.price %></a>
+              <% if user_signed_in? %>
+                <div class="center" style="text-align: center;"><a href="/" class="btn btn-success">$<%= service.price %></a></div>
+              <% else %>
+                  <div class="center" style="text-align: center;"><a href="/users/sign_up" class="btn btn-success">Register To See Price</a></div>
+              <% end %>
             </div>
           </div>
       <% end %>
