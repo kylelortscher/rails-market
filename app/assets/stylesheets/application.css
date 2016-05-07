@@ -79,3 +79,9 @@ footer .footer-nav {
     margin-right: 32px;
     margin-left: 12px;
 }
+
+.optional-text
+{
+    color: #7f8c8d;
+    font-size: 11px;
+}
