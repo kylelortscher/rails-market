@@ -6,8 +6,8 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @title = params[:titleSeo]
-    @service = Service.where(titleSeo: params[:titleSeo])
+    @service = Service.find_by title_seo: params[:title_seo]
+    @title = "Sellgrip - " + @service.title
   end
 
   def new

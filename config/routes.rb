@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #Create New Service
   post '/services', to: 'services#create'
   #Getting Service
-  get '/services/:titleSeo', to: 'services#show'
+  get '/services/:title_seo', to: 'services#show'
   #Getting Edit Service
   get '/services/:id/edit', to: 'services#edit'
   #Chaning The Service
