@@ -29,9 +29,11 @@ class Service < ActiveRecord::Base
 
   def algolia_save
       services = Algolia::Index.new("services")
-      services.add_object({"title" => self.title, "user_id" => self.user_id, "id" => self.id, "price" => self.price, "due_date" => self.due_date,
+      res = services.add_object({"title" => self.title, "user_id" => self.user_id, "id" => self.id, "price" => self.price, "due_date" => self.due_date,
                            "youtube_url" => self.youtube_url, "category" => self.category, "sub_category" => self.sub_category, "description" => self.description,
                            "refund" => self.refund, "status" => self.status})
+      self.aglolia_id = res["objectID"]
+      self.save
   end
 
 end
