@@ -10,4 +10,18 @@
   <%= @service.price %>
 </p>
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card card-block">
+        <h2 class="card-title" style="text-align: center;font-weight: 700;"><%= @service.title %></h2>
+        <%# TODO SETUP WITH S3 IMAGE %>
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1413708617479-50918bc877eb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=21cdd1cc5c52f98dc011ebfb2f7148b2" alt="Card image cap">
+      </div>
+      <div class="card card-block">
+        <h2 style="text-align: center;">About This Gig</h2>
+        <p><%= @service.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
