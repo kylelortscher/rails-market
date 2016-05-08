@@ -1,8 +1,4 @@
 class Service < ActiveRecord::Base
-  include AlgoliaSearch
-
-  #Saving to algolia
-  after_create :algolia_save
 
   #TODO MAKE THESE WORK IN JAVASCRIPT
   #Presence Validations
@@ -26,9 +22,5 @@ class Service < ActiveRecord::Base
 
   #Validate Numerically
   validates_numericality_of :price, :message => "You must use numbers for your price"
-
-
-  def algolia_save
-  end
 
 end

@@ -25,10 +25,13 @@
 <div class="row">
   <div class="col-md-3 col-md-offset-1">
     <div class="card card-block">
-      <p style="text-align: center;"><a href="/">Filter Products</a></p>
+      <div id="clear-all"></div>
+      <div id="q"></div>
     </div>
   </div>
   <div class="col-md-8">
+    <div id="hits"></div>
+    <div id="pagination"></div>
     <div class="row">
       <%# TODO ADD PICTURE FROM S3 AND CORRECT LINKS %>
       <% @services.each do |service| %>

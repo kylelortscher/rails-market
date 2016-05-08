@@ -14,6 +14,10 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,900" rel="stylesheet" type="text/css">
   <!-- Fontawesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- AlgoliaSearch -->
+  <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+  <!-- InstantSearchJS CSS -->
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -36,5 +40,58 @@
 <% end %>
 <%= yield %>
 <%= render 'layouts/footer' %>
+<!-- AlgoliaSearch -->
+<script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<!-- InstantSearch JS -->
+<script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+<script>
+  //CONFIG SETUP
+  var search = instantsearch({
+    appId: 'STU6UYVCC7',
+    apiKey: 'b24f409cea78bb37f52c4449b414317e',
+    indexName: 'Services'
+  });
+  //Reset All Search
+  search.addWidget(
+      instantsearch.widgets.clearAll({
+        container: '#clear-all',
+        templates: {
+          link: 'Reset Filter'
+        },
+        root: 'btn btn-warning',
+        autoHideContainer: false
+      })
+  );
+  //New Hits Container
+  search.addWidget(
+      instantsearch.widgets.hits({
+        container: '#hits',
+        hitsPerPage: 25,
+        templates: {
+          item: getTemplate('hit'),
+          empty: getTemplate('no-results')
+        }
+      })
+  );
+  //Pagination
+  search.addWidget(
+      instantsearch.widgets.pagination({
+        container: '#pagination',
+        scrollTo: '#clear-all'
+      })
+  );
+  //Searchbox
+  search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '#q',
+        placeholder: 'Search for products',
+        autofocus: false
+      })
+  );
+  function getTemplate(templateName) {
+    return document.querySelector('#' + templateName + '-template').innerHTML;
+  }
+  search.start();
+</script>
 </body>
 </html>
