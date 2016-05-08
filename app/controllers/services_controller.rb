@@ -2,11 +2,10 @@ class ServicesController < ApplicationController
 
   def index
     @title = "Sellgrip Marketplace - eCommerce Service Marketplace"
-    @services = Service.all
   end
 
   def show
-    @service = Service.find_by title_seo: params[:title_seo]
+    @service = Service.find_by algolia_id: params[:algolia_id]
     @title = "Sellgrip - " + @service.title
   end
 
