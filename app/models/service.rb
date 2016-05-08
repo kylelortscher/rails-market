@@ -1,5 +1,8 @@
 class Service < ActiveRecord::Base
 
+  #Saving to algolia
+  after_create :algolia_save
+
   #TODO MAKE THESE WORK IN JAVASCRIPT
   #Presence Validations
   validates_presence_of :title, :message => "Title Can't Be Empty"
@@ -22,5 +25,13 @@ class Service < ActiveRecord::Base
 
   #Validate Numerically
   validates_numericality_of :price, :message => "You must use numbers for your price"
+
+
+  def algolia_save
+      services = Algolia::Index.new("services")
+      services.add_object({"title" => self.title, "user_id" => self.user_id, "id" => self.id, "price" => self.price, "due_date" => self.due_date,
+                           "youtube_url" => self.youtube_url, "category" => self.category, "sub_category" => self.sub_category, "description" => self.description,
+                           "refund" => self.refund, "status" => self.status})
+  end
 
 end
