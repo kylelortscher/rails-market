@@ -1,7 +1,10 @@
 class Service < ActiveRecord::Base
 
-  #Saving to algolia
-  after_create :algolia_save
+  #Saving new record to algolia
+  after_create :algolia_new_service
+
+  #Updating Record To Agolia
+  after_update :algolia_update_service
 
   #TODO MAKE THESE WORK IN JAVASCRIPT
   #Presence Validations
@@ -27,13 +30,18 @@ class Service < ActiveRecord::Base
   validates_numericality_of :price, :message => "You must use numbers for your price"
 
 
-  def algolia_save
+  def algolia_new_service
       services = Algolia::Index.new("services")
       res = services.add_object({"title" => self.title, "user_id" => self.user_id, "id" => self.id, "price" => self.price, "due_date" => self.due_date,
                            "youtube_url" => self.youtube_url, "category" => self.category, "sub_category" => self.sub_category, "description" => self.description,
                            "refund" => self.refund, "status" => self.status, "title_seo" => self.title_seo})
       self.algolia_id = res["objectID"]
       self.save
+  end
+
+
+  def algolia_update_service
+    service = Algolia::Index.new("services")
   end
 
 end
