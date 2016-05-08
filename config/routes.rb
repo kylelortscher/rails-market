@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   #Getting Edit Service
   get '/services/:id/edit', to: 'services#edit'
   #Chaning The Service
-  put 'services/:id', to: 'services#update'
+  put '/services/:id', to: 'services#update'
   #Delete A Service
   #delete 'services/:id', to: 'services#destroy'
 

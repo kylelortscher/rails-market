@@ -29,7 +29,7 @@ class Service < ActiveRecord::Base
   #Validate Numerically
   validates_numericality_of :price, :message => "You must use numbers for your price"
 
-
+  #Adding The Service To Algolia Database
   def algolia_new_service
       services = Algolia::Index.new("services")
       res = services.add_object({"title" => self.title, "user_id" => self.user_id, "id" => self.id, "price" => self.price, "due_date" => self.due_date,
@@ -39,9 +39,13 @@ class Service < ActiveRecord::Base
       self.save
   end
 
-
+  #Updating To Algolia Database
   def algolia_update_service
     service = Algolia::Index.new("services")
+    service = service.get_object(self.algolia_id)
+    service.partial_update_object({"title" => self.title, "user_id" => self.user_id, "id" => self.id, "price" => self.price, "due_date" => self.due_date,
+                                   "youtube_url" => self.youtube_url, "category" => self.category, "sub_category" => self.sub_category, "description" => self.description,
+                                   "refund" => self.refund, "status" => self.status, "title_seo" => self.title_self})
   end
 
 end

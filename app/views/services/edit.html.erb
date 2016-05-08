@@ -14,7 +14,7 @@
             <% end %>
           </div>
         </div>
-        <form action="/services/<%= @service.id %>/edit" accept-charset="UTF-8" method="post">
+        <form action="/services/<%= @service.id %>" accept-charset="UTF-8" method="post">
           <input name="utf8" type="hidden" value="✓">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <div class="form-group">
