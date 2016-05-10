@@ -24,6 +24,12 @@ Rails.application.routes.draw do
   #delete 'services/:id', to: 'services#destroy'
 
 
+  #Current User Profile
+  get '/profile', to: 'profiles#index'
+  #Other Users Profile
+  get '/profile/:username', to: 'profiles#show'
+
+
 
 
 
