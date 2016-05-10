@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
   def create
     @service = Service.find_by id: params[:service_id]
     @favorite = Favorite.new

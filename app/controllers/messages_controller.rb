@@ -1,6 +1,11 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   def index
+    #Messages That Were Sent By The Current User
+    @sent_messages = Message.where(sender_user_id: current_user.id)
+    #Messages That Were Recieved By The Current User
+    @received_messages = Message.where(receiver_user_id: current_user.id)
+
   end
 
   def show
