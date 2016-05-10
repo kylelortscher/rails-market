@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card card-block card-fixed">
+      <div class="card card-block">
         <% if user_signed_in? %>
           <button class="btn btn-warning btn-block">Buy Now For $<%= @service.price %></button>
         <% else %>
@@ -41,6 +41,29 @@
           </div>
         </div>
         <hr>
+        <%# TODO SETUP FAVORITE %>
+        <form action="/favorite" accept-charset="UTF-8" method="post">
+          <input type="submit" class="btn btn-primary-outline btn-block" value="Add To Favorites">
+        </form>
+        <%# TODO SETUP This Info %>
+        <div style="margin-top: 5%;">
+          <p class="light-font">Service Created At</p>
+          <p class="dark-bold-font">3 Months Ago</p>
+          <p class="light-font">Total Service Orders</p>
+          <p class="dark-bold-font">731 Orders</p>
+          <p class="light-font">Last Logged In</p>
+          <p class="dark-bold-font">3 Hours Ago</p>
+          <p class="light-font">Due Date</p>
+          <p class="dark-bold-font">7 Days Guarnteed Delivery</p>
+          <p class="light-font">Refund Length</p>
+          <p class="dark-bold-font">30 Day 100% Money Back Guarntee</p>
+        </div>
+        <%# TODO SETUP MESSAGE %>
+        <a href="/message"><button class="btn btn-primary btn-block"><i class="fa fa-comments-o" aria-hidden="true"></i>Message This Seller</button></a>
+        <%# TODO SETUP SPAM SETUP %>
+        <form action="/spam" accept-charset="UTF-8" method="post" style="margin-top: 5%;">
+          <input type="submit" class="btn btn-danger-outline btn-block" value="Report As Spam">
+        </form>
       </div>
     </div>
   </div>

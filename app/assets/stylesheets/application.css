@@ -106,3 +106,12 @@ footer .footer-nav {
     width: 500px;
     color: #9b9b9b;
 }
+
+.dark-bold-font {
+    font-weight: bold;
+    color: #334d66;
+}
+
+.light-font {
+    color: #999999;
+}
