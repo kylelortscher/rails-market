@@ -7,6 +7,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find_by algolia_id: params[:algolia_id]
     @title = "Sellgrip - " + @service.title
+    @user = User.find_by id: @service.user_id
   end
 
   def new

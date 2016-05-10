@@ -1,26 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @service.title %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @service.price %>
-</p>
-
 <div class="container">
   <div class="row">
     <div class="col-md-8">
       <div class="card card-block">
         <h2 class="card-title" style="text-align: center;font-weight: 700;"><%= @service.title %></h2>
         <%# TODO SETUP WITH S3 IMAGE %>
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1413708617479-50918bc877eb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=21cdd1cc5c52f98dc011ebfb2f7148b2" alt="Card image cap">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1413708617479-50918bc877eb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=21cdd1cc5c52f98dc011ebfb2f7148b2" style="width: 100%;" alt="Card image cap">
       </div>
       <div class="card card-block">
         <h2 style="text-align: center;">About This Gig</h2>
         <p><%= @service.description %></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-block card-fixed">
+        <% if user_signed_in? %>
+          <button class="btn btn-warning btn-block">Buy Now For $<%= @service.price %></button>
+        <% else %>
+          <button class="btn btn-warning btn-block"><a href="/users/sign_up">Register To See Price</a></button>
+        <% end %>
+      </div>
+      <div class="card card-block">
+        <div class="row">
+          <div class="col-md-4">
+            <%# TODO SETUP PROFILE WITH S3 IMAGE %>
+            <img src="https://organicthemes.com/demo/profile/files/2012/12/profile_img.png" style="width: 100%;border-radius: 50%;">
+          </div>
+          <div class="col-md-8">
+            <a href="/profile/<%= @user.username %>"><%= @user.username %></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
