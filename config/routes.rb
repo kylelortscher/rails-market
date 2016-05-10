@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   #Other Users Profile
   get '/profile/:username', to: 'profiles#show'
 
+  #Adding A Service To A Favorite List
+  post '/favorite/:service_id', to: 'favorites#create'
+
 
 
 

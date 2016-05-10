@@ -47,7 +47,9 @@
         </div>
         <hr>
         <%# TODO SETUP FAVORITE %>
-        <form action="/favorite" accept-charset="UTF-8" method="post">
+        <form action="/favorite/<%= @service.id %>" accept-charset="UTF-8" method="post">
+          <input name="utf8" type="hidden" value="✓">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="submit" class="btn btn-primary-outline btn-block" value="Add To Favorites">
         </form>
         <%# TODO SETUP This Info %>
