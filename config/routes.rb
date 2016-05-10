@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   #Adding A Service To A Favorite List
   post '/favorite/:service_id', to: 'favorites#create'
 
+  #Marking A Service As Spam
+  post '/spam/:service_id', to: 'spams#create'
+
 
 
 

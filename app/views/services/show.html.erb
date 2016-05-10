@@ -46,7 +46,7 @@
           </div>
         </div>
         <hr>
-        <%# TODO SETUP FAVORITE %>
+        <%# TODO SETUP FAVORITE DELETE IF FAVORITE EXIST %>
         <form action="/favorite/<%= @service.id %>" accept-charset="UTF-8" method="post">
           <input name="utf8" type="hidden" value="✓">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -70,6 +70,8 @@
         <a href="/message/<%= @user.username %>"><button class="btn btn-primary btn-block"><i class="fa fa-comments-o" aria-hidden="true"></i>Message This Seller</button></a>
         <%# TODO SETUP SPAM SETUP %>
         <form action="/spam/<%= @service.id %>" accept-charset="UTF-8" method="post" style="margin-top: 5%;">
+          <input name="utf8" type="hidden" value="✓">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="submit" class="btn btn-danger-outline btn-block" value="Report As Spam">
         </form>
       </div>

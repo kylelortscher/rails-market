@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
         flash[:notice] = "Added To Your Favorites"
         redirect_to '/services/' + @service.algolia_id + '/' + @service.title_seo
       else
-        render :new
+        redirect_to '/services/' + @service.algolia_id + '/' + @service.title_seo
       end
     end
   end
