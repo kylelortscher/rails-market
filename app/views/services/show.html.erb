@@ -10,12 +10,17 @@
         <h2 style="text-align: center;">About This Gig</h2>
         <p><%= @service.description %></p>
       </div>
+      <div class="card card-block">
+        <%# TODO ADD BUYER RATING %>
+        <h2 style="text-align: center;">Buyer Ratings</h2>
+      </div>
     </div>
     <div class="col-md-4">
       <div class="card card-block">
         <% if user_signed_in? %>
           <button class="btn btn-warning btn-block">Buy Now For $<%= @service.price %></button>
         <% else %>
+            <%# TODO ADD BUY NOW BUTTON TO WORK WITH PAYPAL %>
           <button class="btn btn-warning btn-block"><a href="/users/sign_up">Register To See Price</a></button>
         <% end %>
       </div>
@@ -58,10 +63,11 @@
           <p class="light-font">Refund Length</p>
           <p class="dark-bold-font">30 Day 100% Money Back Guarntee</p>
         </div>
+        <hr>
         <%# TODO SETUP MESSAGE %>
-        <a href="/message"><button class="btn btn-primary btn-block"><i class="fa fa-comments-o" aria-hidden="true"></i>Message This Seller</button></a>
+        <a href="/message/<%= @user.username %>"><button class="btn btn-primary btn-block"><i class="fa fa-comments-o" aria-hidden="true"></i>Message This Seller</button></a>
         <%# TODO SETUP SPAM SETUP %>
-        <form action="/spam" accept-charset="UTF-8" method="post" style="margin-top: 5%;">
+        <form action="/spam/<%= @service.id %>" accept-charset="UTF-8" method="post" style="margin-top: 5%;">
           <input type="submit" class="btn btn-danger-outline btn-block" value="Report As Spam">
         </form>
       </div>
