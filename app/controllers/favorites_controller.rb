@@ -1,5 +1,16 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
+
+  def index
+    @favorites = Favorite.where(user_id: current_user.id)
+    favorite_id_array = []
+    @favorites.each do |favorite|
+      favorite_id_array.push(favorite.service_id)
+    end
+    @services = Service.where(id: favorite_id_array)
+  end
+
+
   def create
     @service = Service.find_by id: params[:service_id]
     @favorite = Favorite.new

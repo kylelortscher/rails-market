@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   #Adding A Service To A Favorite List
   post '/favorite/:service_id', to: 'favorites#create'
+  #Showing All Of The Current Users Favorites
+  get '/favorites', to: 'favorites#index'
 
   #Marking A Service As Spam
   post '/spam/:service_id', to: 'spams#create'
@@ -41,6 +43,8 @@ Rails.application.routes.draw do
   get '/message/:username', to: 'messages#new'
   #Send Message
   post '/message/:username', to: 'messages#create'
+
+
 
 
 

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card card-stock">
+    <h2 style="text-align: center;font-weight: bold;">My Favorites</h2>
+  </div>
+  <div class="row">
+    <% @services.each do |service| %>
+      <div class="col-xs-4">
+        <div class="service-preview" style="padding: 4%;background: #fff;">
+          <a href="/services/<%= service.algolia_id %>/<%= service.title_seo%>"><img src="https://images.unsplash.com/photo-1413708617479-50918bc877eb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=21cdd1cc5c52f98dc011ebfb2f7148b2" width="100%"></a>
+          <a href="/services/<%= service.algolia_id %>/<%= service.title_seo %>"><p style="text-align: center;"><%= service.title %></p></a>
+              <div class="center" style="text-align: center;"><a href="/services/<%= service.algolia_id %>/<%= service.title_seo %>" class="btn btn-success">$<%= service.price %></a></div>
+          <hr>
+          <%# TODO SETUP WORKING STAR RATING %>
+          <div style="text-align: center;">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+          </div>
+          <p style="text-align: center;">4.6 out of 5(167 Reviews)</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

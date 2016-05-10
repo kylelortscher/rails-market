@@ -3,9 +3,6 @@ class Service < ActiveRecord::Base
   #Saving new record to algolia
   after_create :algolia_new_service
 
-  #Updating Record To Agolia
-  after_update :algolia_update_service
-
   #TODO MAKE THESE WORK IN JAVASCRIPT
   #Presence Validations
   validates_presence_of :title, :message => "Title Can't Be Empty"
@@ -37,15 +34,6 @@ class Service < ActiveRecord::Base
                            "refund" => self.refund, "status" => self.status, "title_seo" => self.title_seo})
       self.algolia_id = res["objectID"]
       self.save
-  end
-
-  #Updating To Algolia Database
-  def algolia_update_service
-    service = Algolia::Index.new("services")
-    service = service.get_object(self.algolia_id)
-    service.partial_update_object({"title" => self.title, "user_id" => self.user_id, "id" => self.id, "price" => self.price, "due_date" => self.due_date,
-                                   "youtube_url" => self.youtube_url, "category" => self.category, "sub_category" => self.sub_category, "description" => self.description,
-                                   "refund" => self.refund, "status" => self.status, "title_seo" => self.title_self})
   end
 
 end
