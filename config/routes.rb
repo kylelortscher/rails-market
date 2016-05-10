@@ -35,8 +35,10 @@ Rails.application.routes.draw do
   #Marking A Service As Spam
   post '/spam/:service_id', to: 'spams#create'
 
-  #Get Message Another
-  get '/message/:username', to: 'messages#index'
+  #Show all current users messages
+  get '/messages', to: 'messages#index'
+  #Get New Message Form
+  get '/message/:username', to: 'messages#new'
   #Send Message
   post '/message/:username', to: 'messages#create'
 
