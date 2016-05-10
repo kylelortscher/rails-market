@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card card-block">
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-5">
+        <img src="https://organicthemes.com/demo/profile/files/2012/12/profile_img.png" style="width: 100%;border-radius: 50%;">
+      </div>
+    </div>
+    <p style="text-align: center;font-weight: bold;">Send a message to <%= @user.username %></p>
+  </div>
+  <div class="card card-block">
+    <form action="/message/<%= @user.username %>" accept-charset="UTF-8" method="post" style="margin-top: 5%;">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <fieldset class="form-group">
+        <textarea class="form-control" name="description" rows="6" placeholder="Send The Seller A Message"></textarea>
+      </fieldset>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <input type="submit" class="btn btn-primary btn-block" value="Send Message">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
